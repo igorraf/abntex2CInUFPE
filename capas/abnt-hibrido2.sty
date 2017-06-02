@@ -1,0 +1,222 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para a Universidade XXXX
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is SEU_NOME, SEU_EMAIL
+%%
+%% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
+%%
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA A UNIVERSIDADE XXX
+% ---
+
+\ProvidesPackage{abnt-hibrido2}[2014/09/01 Criacao desta customizacao do abnTeX2]
+
+
+%\RequirePackage[top=3.00cm,left=3.00cm,bottom=2.00cm,right=2.00cm]{geometry}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\quotefont{\normalfont\normalsize}
+%\newcommand\quotefonti{\normalsize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IDENTIFICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% School identification
+
+\def\universitypt#1{%
+	\gdef\@universitypt{#1}}
+\def\@universitypt{Universidade Federal de Pernambuco}
+
+\def\universityen#1{%
+	\gdef\@universityen{#1}}
+\def\@universityen{Federal University of Pernambuco}
+
+%\let\@showinstitute=0
+%\def\institutept#1{%
+%	\let\@showinstitutept=1
+%	\gdef\@institutept{#1}}
+%\def\instituteen#1{%
+%	\let\@showinstituteen=1
+%	\gdef\@instituteen{#1}}
+%
+\let\@showdepartment=0
+\def\departmentpt#1{%
+	\let\@showdepartment=1
+	\gdef\@departmentpt{#1}}
+\def\departmenten#1{%
+	\let\@showdepartment=1
+	\gdef\@departmenten{#1}}
+
+\def\programpt#1{%
+	\gdef\@programpt{#1}}
+\def\@programpt{\@notdefined}
+
+\def\programen#1{%
+	\gdef\@programen{#1}}
+\def\@programen{\@notdefined}
+%
+%\def\majorfieldpt#1{%
+%	\gdef\@majorfieldpt{#1}}
+%\def\@majorfieldpt{\@notdefined}
+%
+%\def\majorfielden#1{%
+%	\gdef\@majorfielden{#1}}
+%\def\@majorfielden{\@notdefined}
+%
+%\def\address#1{%
+%	\gdef\@address{#1}}
+%\def\@address{Recife}
+
+
+% alterando a capa
+\renewcommand{\imprimircapa}{%
+	\begin{capa}%
+		
+		%\savegeometry{geoCapa}
+		%\geometry{top=2.00cm,left=3.50cm,bottom=2.05cm,right=4.50cm}
+		
+		\if@openright\cleardoublepage\else\clearpage\fi
+		\thispagestyle{empty}
+		
+		\newgeometry{top=2.00cm,left=3.50cm,bottom=2.05cm,right=4.50cm}
+		
+		\center
+		%\ABNTEXchapterfont\Large UNIVERSIDADE CLS QUE TORNA OS DOCUMENTOS AINDA MAIS ESTRANHOS
+		%\begin{center}
+			
+		
+		%\let\odlLineSpread\linespread
+		\begin{center}
+			%\linespread{0.5}
+			\includegraphics[scale=0.55]{cinlogo2}
+			\\ 	
+			\setlength{\parskip}{0em}
+			\ABNTEXchapterfont \bfseries { \textcolor[RGB]{128,128,128} {Pós-Graduação em Ciência da Computação }}
+		\end{center}
+		%\linespread\odlLineSpread
+		%\linespread{0.5}
+		%\setlength{\parskip}{-1em}		
+		
+		%\linespread{1.0}
+		
+		
+		\vfill
+		
+		\begin{center}
+			\bfseries{ \MakeUppercase{ \imprimirautor } }
+%		{\fontfamily{times} \selectfont \large \bfseries{ \MakeUppercase{ \imprimirautor }}}
+		\end{center}
+		
+		\vfill
+		
+		
+		\begin{center}
+			{\ABNTEXchapterfont\bfseries{\MakeUppercase{\imprimirtitulo}}}
+			\vfill
+			%{{\ABNTEXchapterfont \bfseries{ \imprimirtipotrabalho }}} \\
+		\end{center}
+		
+		\vspace{0.2cm}
+		\includegraphics[width=1cm]{ufpelogobwCrop} \\
+		
+		{\fontfamily{times}\selectfont \tiny \@universitypt\\}
+		
+		
+		{\fontfamily{times}\selectfont \tiny posgraduacao@cin.ufpe.br\\}
+		{\fontfamily{times}\selectfont \tiny \url{www.cin.ufpe.br/~posgraduacao}\\}
+		\vskip\baselineskip
+		\vskip\baselineskip
+		
+		\vspace{0.2cm}
+		\begin{center}
+			\large\imprimirlocal
+			\linebreak	
+			\linespread{0.95}
+			\large\imprimirdata
+		\end{center}
+		
+		%\vspace*{1cm}
+		
+		\restoregeometry
+	\end{capa}
+}
+
+
+% folha de rosto 
+
+\makeatletter
+
+\renewcommand{\folhaderostocontent}{
+	\if@openright\cleardoublepage\else\clearpage\fi
+	\thispagestyle{empty}
+	
+	\newgeometry{top=2.50cm,left=3.00cm,bottom=2.50cm,right=2.09cm}	
+	
+%	\vskip4\baselineskip
+	\vspace*{\fill}
+
+	\begin{center}
+		{\bfseries{\normalsize \MakeUppercase{\imprimirautor}}}
+		\vskip15\baselineskip
+		{\bfseries{\normalsize\MakeUppercase{\imprimirtitulo}}}\\
+		%\vspace*{\fill}
+		
+		\vskip3\baselineskip
+		
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			\hspace{.38\textwidth}
+			\begin{minipage}{.57\textwidth}
+				\SingleSpacing
+				\imprimirpreambulo
+			\end{minipage}%
+			\vspace*{\fill}
+		}%
+		
+		\vspace*{\fill}
+		\abntex@ifnotempty{{\imprimirorientadorRotulo~\imprimirorientador\par}}{%
+			\hspace{.38\textwidth}
+			\begin{minipage}{.57\textwidth}
+				\SingleSpacing
+				{ \imprimirorientadorRotulo~\bfseries{Prof.. \imprimirorientador}\par}
+			\end{minipage}%
+			\vspace*{\fill}
+		}%
+		
+		\abntex@ifnotempty{\imprimircoorientador}{%
+			{\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+		}%
+		
+		\vspace*{\fill}%\vfill
+		
+		\begin{center}
+			\large\imprimirlocal
+			\linebreak	
+			\linespread{0.95}
+			\large\imprimirdata
+		\end{center}
+		
+		\restoregeometry
+	\end{center}
+}
+
+\makeatother
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA A UNIVERSIDADE XXX
+% ---

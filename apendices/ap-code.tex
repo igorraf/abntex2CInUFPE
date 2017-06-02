@@ -1,0 +1,56 @@
+\chapter{Código}
+\label{ap:cod}
+
+\lstset{
+	language=C++,
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue}, 
+	stringstyle=\color{verde}, 
+	commentstyle=\color{red}, 
+	extendedchars=true, 
+	showspaces=false, 
+	showstringspaces=false, 
+	numbers=left,
+	numberstyle=\tiny,
+	breaklines=true, 
+	backgroundcolor=\color{green!10},
+	breakautoindent=true, 
+	captionpos=b,
+	xleftmargin=0pt,
+}
+
+\section{Código config.h}
+
+%#####\pagestyle{empty}
+\begin{lstlisting}
+
+// Comentario 
+#define Y 2
+
+\end{lstlisting}
+
+
+\section{Código main.c}
+\label{ap:codMain}
+%\pagestyle{empty}
+\begin{lstlisting}
+#include "../host/inc/config.h" 
+
+#define X 180
+
+void main(void) {
+	int i=0;
+}
+ \end{lstlisting}
+ 
+ 
+\section{Código file2.c}
+ 
+\begin{lstlisting}
+#include "file2.h"
+
+void funEx(int p_val)
+{
+	p_val += 3;	
+}
+ \end{lstlisting}
